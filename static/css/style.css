@@ -1,0 +1,273 @@
+
+.wrapper {
+    display: flex;
+}
+
+#main-section {
+    overflow: hidden; /* Makee this div contain its floated children */
+    width: 100%;
+}
+
+#sidebar {
+    margin-top: 2em;
+    float: left; /* Make this div as wide as its contents */
+    min-height: 90vh;
+    padding-left: 1em;
+    padding-top: 3em;
+    padding-right:1em;
+    border-right: 0.5px solid #898c91;
+}
+
+#sidebar p {
+    padding-left: 2em;
+    padding-right:2em;
+}
+
+#sidebar p:hover {
+    background-color: #ffc107;
+}
+
+#sidebar h4 {padding-left: 0.5em;}
+
+
+#sidebar.view-sidebar {display: none;}
+
+#show-sidebar-button {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+    color: #335177;
+}
+
+@media (max-width: 567px) {
+    #sidebar {
+        display: none;
+    }
+
+    #sidebar.view-sidebar {
+        display: block;
+    }
+
+    #show-sidebar-button {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+#rightside-pannel {
+    overflow: hidden; /* Make this div take up the rest of the horizontal space, and no more */
+}
+
+#display-message-section {
+    margin-top: 5em;
+    min-height: 80vh;
+    max-height: 80vh;
+    overflow-y: auto; /*Make  this section scrolable */
+}
+
+#input-area {
+    padding-left: 1em;
+    padding-right: 1em;
+    bottom: 0;
+}
+
+input[type=text]:focus{
+    border-color: #ffc107;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 10px #ffc107;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.others-msg {
+    margin-right:7em;
+    margin-left: 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: #C2DBFB;
+    /* animation */
+    animation-name: fadeIn;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.my-msg {
+    margin-left:7em;
+    margin-right:1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    border-radius: 5px;
+    border-color: #206ED2;
+    border-width: 1px;
+    border-style: solid;
+    /* animation */
+    /* animation-name: fadeIn; */
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-name: hide;
+    animation-play-state: paused;
+}
+
+.system-msg {
+    margin-right:7em;
+    margin-left: 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    color: #656d78;
+    font-size:0.9em;
+    text-align: center;
+}
+
+.timestamp {
+    color: #656d78;
+    font-size:0.7em;
+}
+
+.other-username {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #206ED2;
+}
+
+.my-username {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #FF6B13;
+}
+
+#msg-input {
+    border-color: #ffc107;
+    border-width: 5px;
+}
+
+#get-username {
+    display: none !important;
+}
+
+
+
+
+
+
+
+/* Main Style */
+
+h1 {
+    color: #206ED2;
+}
+
+#main-section {
+    overflow: hidden; /* Makee this div contain its floated children */
+    width: 100%;
+}
+
+.jumbotron {
+    marin-bottom: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#image-section {
+    min-width: 30%;
+    max-width: 30%;
+    margin-right: 2em;
+    padding: 0 0 0 2em;
+    float: left;
+}
+
+img {
+    float: left;
+    max-width: 100%;
+    max-height: 480px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#righthand-side {
+    padding: 0 3em 0 0;
+    overflow: hidden; /* Make this div take up the rest of the horizontal space, and no more */
+}
+
+h2 {
+    color: #5b9cfc;
+}
+
+#righthand-side p {
+    font-size: 0.8em;
+    color: grey;
+}
+
+@media (max-width: 588px) {
+    picture {
+        display: none;
+    }
+    #righthand-side {
+        padding-left: 1.5em;
+    }
+}
+
+@media (min-width: 1000px) {
+    #righthand-side {
+        max-width: 50%;
+    }
+}
+
+.formError {
+    list-style-type:none;
+    padding:0px;
+    color: red;
+}
+
+input[type='text']:focus, input[type='password']:focus {
+    border-color: #ffc107;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 10px #ffc107;
+}​
+
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.hide  {
+    float: right;
+
+}

@@ -1,0 +1,4 @@
+Flask
+Flask-SocketIO
+flask-session
+Werkzeug==0.16.0

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png')}}" type="image/x-icon">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <!-- {% if not name %} -->
+    <!-- {% endif %} -->
+    <div class="container">
+        <!-- Nav bar start -->
+        <nav class=" navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <div class="container">
+                <div id="show-sidebar-button" class="cursor-pointer">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-plus-circle "></i>
+                    </button>
+                </div>
+
+
+                <a class="navbar-brand" href="#"> Flack</a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul id="nav-channel" class="navbar-nav mr-auto d-md-none">
+                        {% for channel in channels %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">{{ channel }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+                {% if username %}
+                <div class="nav-item ml-auto"><a class="text-white" role="button" id="logout-btn"
+                        href="{{ url_for('logout') }}">
+                        Logout</a><span class="text-success">( {{ username }})</span> 
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+
+
+        <!-- Flash error messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <p class=formError>{{ messages[0] }}</p>
+        {% endif %}
+        {% endwith %}
+
+
+        {% block body %}
+
+
+        {% endblock %}
+
+
+        <!-- Wrapper end -->
+
+        <!-- SocketIO JS -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/socket.io-2.3.0.js') }}"></script>
+
+        <!-- jQuery , Bootstrap -->
+        <script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+        <!-- Font Awesome JS -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+        {% block script %}
+
+        
+
+
+
+        {% endblock %}
+    </div>
+</body>
+
+</html>

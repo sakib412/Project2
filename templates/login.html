@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Flack | Login
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="container">
+    <div class="login-form" style="padding-top: 300px; clear: both;">
+        {% if message  %}
+        <div class="text-capitalize text-danger m-3">{{ message }}</div>
+        {% endif %}
+        <form class="form-group" action="{{ url_for('login') }}" method="POST">
+            <label for="username5">Display Name</label>
+            <input class="form-control" id="username5" name="username" type="text">
+            <button class="btn btn-primary mb-2" id="createUser" type="submit">Login </button>
+        </form>
+         <!-- Flash error messages -->
+ {% with messages = get_flashed_messages() %}
+ {% if messages %}
+ <p class=formError>{{ messages[0] }}</p>
+ {% endif %}
+ {% endwith %}
+    </div>
+</div>
+
+{% block script %}
+
+
+<script>
+    var createUser = document.querySelector('#createUser');
+
+
+    localStorage.clear();
+    createUser.onclick = () => {
+        let username5 = document.querySelector('#username5').value;
+        localStorage.setItem('username', username5);
+    };
+</script>
+{% endblock %}
+
+
+
+{% endblock %}

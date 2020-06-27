@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Flack
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<!-- Nav bar end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<!-- Main section start -->
+<div id="main-section">
+
+    <!-- Sidebar start -->
+    <nav id="sidebar">
+        <h4>Channels</h4>
+
+
+        {% for channel in channels %}
+        <p id="{{ channel }}" class="select-room cursor-pointer">{{ channel }}</p>
+        {% endfor %}
+    </nav>
+    <!-- Sidebar end -->
+
+    <!-- Rightside pannel start -->
+    <div id="rightside-pannel">
+
+        <!-- Display message start-->
+        <div id="display-message-section">
+
+
+        </div>
+
+
+        <!-- Type message start -->
+        <div id="input-area" class="input-group mb-3">
+            <input type="text" id="user_message" class="form-control" placeholder="Type here..."
+                aria-label="Type a message" aria-describedby="basic-addon2" autocomplete="off" required autofocus>
+            <div class="input-group-append">
+                <button id="send_message" class="btn btn-warning" type="button">SEND <i
+                        class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <!-- Type message end -->
+    </div>
+    <!-- Rightside pannel end -->
+</div>
+<!-- Main section end -->
+
+
+{% endblock %}
+
+{% block script %}
+<!-- Custom javascript -->
+{% endblock %}
