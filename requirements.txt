@@ -1,4 +1,4 @@
 Flask
 Flask-SocketIO
 flask-session
-Werkzeug==2.2.3
+Werkzeug==3.0.1
